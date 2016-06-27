@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
+import NavBar from "./nav/NavBar";
 
-import VideoApp from './video/VideoApp';
-import BookApp from './books/BookApp';
-import WeatherApp from './weather/WeatherApp';
+const navLinks = [
+    {
+        title: "Video",
+        href: "/video"
+    },{
+        title: "Book",
+        href: "/book"
+    },{
+        title: "Weather",
+        href: "/weather"
+    }
+];
 
 export default class App extends Component
 {
@@ -10,8 +21,12 @@ export default class App extends Component
     {
         return (
             <div>
-
-                <WeatherApp />
+                <NavBar bgColor="#fff"
+                        titleColor="#3097d1"
+                        navData={navLinks} />
+                <div className="row">
+                    <div className="col-sm-12">{this.props.children}</div>
+                </div>
             </div>
         );
     }
